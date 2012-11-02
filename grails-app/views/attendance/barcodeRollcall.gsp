@@ -10,12 +10,18 @@
 	</head>
 	<body>
 		<g:javascript>
-			 function appendPendingRequest() {
-			 	var userProfileId = $('input[name=userProfileId]').val();
+			 function appendPendingRequest(e) {
+			 	var userProfileId = $(this).val();
 			 	var row = $('<tr id="attendance_' + userProfileId + '"><td></td><td>' + userProfileId + '</td><td></td><td></td></tr>');
 			 	$('#attendResult').prepend(row);
-			 	jQuery.ajax({type:'POST',data:'userProfileId='+userProfileId, url:'/barcode-rollcall.git/attendance/attend',success:function(data,textStatus){onAttend(data);},error:function(XMLHttpRequest,textStatus,errorThrown){}});
-				$('input[name=userProfileId]').val('');
+			 	jQuery.ajax({
+			 		type:'POST',
+			 		data:'userProfileId='+userProfileId, 
+			 		url:'attend',
+			 		success:onAttend,
+			 		error:function(XMLHttpRequest,textStatus,errorThrown){}
+			 	});
+				$(this).val('');
 			 }
 		
 		     function onAttend(data) {

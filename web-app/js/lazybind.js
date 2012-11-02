@@ -15,8 +15,9 @@
         }        
         $(this).bind(event, function(e){
             var ev = e;
+            var targetFunction = jQuery.proxy(fn, $(this));
             timer = setTimeout(function(){
-                fn(ev);
+            	targetFunction(ev);
             }, timeout);
         });
     };
