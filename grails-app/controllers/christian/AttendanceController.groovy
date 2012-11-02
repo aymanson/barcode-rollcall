@@ -31,7 +31,8 @@ class AttendanceController {
 		attendanceInstance.arrivalTime = new Date();
 		attendanceInstance.date = calendar.getTime()
 		attendanceInstance.save(flush: true)
-		[attendanceInstance: attendanceInstance]
+		def userProfileInstance = UserProfile.findById(params.userProfileId)
+		[attendanceInstance: attendanceInstance, userProfileInstance: userProfileInstance]
 	}
 	
     def list(Integer max) {
