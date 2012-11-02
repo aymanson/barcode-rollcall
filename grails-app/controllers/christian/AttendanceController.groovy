@@ -31,7 +31,7 @@ class AttendanceController {
 		attendanceInstance.arrivalTime = new Date();
 		attendanceInstance.date = calendar.getTime()
 		attendanceInstance.save(flush: true)
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		def userProfileInstance = UserProfile.findById(params.userProfileId)
 		[attendanceInstance: attendanceInstance, userProfileInstance: userProfileInstance]
 	}

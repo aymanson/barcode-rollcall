@@ -25,7 +25,7 @@
 		     }
 		     
 		     $(document).ready(function() {
-		     	$('input[name=userProfileId]').lazybind('keyup', appendPendingRequest, 500, 'keyup');
+		     	$('input[name=userProfileId]').lazybind('keyup', appendPendingRequest, 200, 'keyup');
 		     });
 		</g:javascript>	
 	
