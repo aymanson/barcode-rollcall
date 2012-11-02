@@ -13,6 +13,9 @@
 			 function appendPendingRequest(e) {
 			 	var userProfileId = $(this).val();
 			 	var row = $('<tr id="attendance_' + userProfileId + '"><td></td><td>' + userProfileId + '</td><td></td><td></td></tr>');
+			 	if ($('#attendance_' + userProfileId)) {
+			 		$('#attendance_' + userProfileId).remove();
+			 	}
 			 	$('#attendResult').prepend(row);
 			 	jQuery.ajax({
 			 		type:'POST',
