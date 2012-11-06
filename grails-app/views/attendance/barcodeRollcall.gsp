@@ -20,9 +20,11 @@
 			 	jQuery.ajax({
 			 		type:'POST',
 			 		data:'userProfileId='+userProfileId, 
-			 		url:'attend',
+			 		url:'attend3',
 			 		success:onAttend,
-			 		error:function(XMLHttpRequest,textStatus,errorThrown){}
+			 		error:function(XMLHttpRequest,textStatus,errorThrown){},
+			 		timeout:5000,
+      				retryMax: 2
 			 	});
 				$(this).val('');
 			 }
