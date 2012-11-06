@@ -90,6 +90,16 @@
 	<g:textField name="sex" value="${userProfileInstance?.sex}"/>	
 </div>
 
+
+<div class="fieldcontain ${hasErrors(bean: userProfileInstance, field: 'cardId', 'error')} required">
+	<label for="cardId">
+		<g:message code="userProfile.cardId.label" default="Card Id" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="cardId" type="number" value="${userProfileInstance.cardId}" required=""/>
+</div>
+
+
 <div class="fieldcontain ${hasErrors(bean: userProfileInstance, field: 'subDistrict', 'error')} required">
 	<label for="subDistrict">
 		<g:message code="userProfile.subDistrict.label" default="Sub District" />
@@ -105,4 +115,5 @@
 	</label>
 	<g:select name="userGroups" from="${christian.UserGroup.list()}" multiple="multiple" optionKey="id" optionValue="name" size="5" value="${userProfileInstance?.userGroups*.id}" class="many-to-many"/>
 </div>
+
 
