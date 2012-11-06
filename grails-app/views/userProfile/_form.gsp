@@ -87,7 +87,7 @@
 		<g:message code="userProfile.sex.label" default="Sex" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="password" value="${userProfileInstance?.sex}"/>	
+	<g:textField name="sex" value="${userProfileInstance?.sex}"/>	
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: userProfileInstance, field: 'subDistrict', 'error')} required">
