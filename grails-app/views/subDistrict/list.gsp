@@ -49,6 +49,7 @@
 			<div class="pagination">
 				<g:paginate total="${subDistrictInstanceTotal}" />
 			</div>
+			<g:jasperReport jasper="sub-district-list" format="PDF" name="All Sub District" />
 		</div>
 	</body>
 </html>
