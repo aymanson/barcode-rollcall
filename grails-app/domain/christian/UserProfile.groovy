@@ -16,7 +16,7 @@ class UserProfile {
 	String mobilePhoneNo;
 	Long lastUpdateBy;
 	Date lastUpdateDate;
-	
+	Integer cardId;
 	District district;
 	SubDistrict subDistrict;
 	
