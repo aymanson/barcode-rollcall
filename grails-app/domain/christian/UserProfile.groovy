@@ -1,15 +1,33 @@
 package christian
 
+import java.util.Date;
+
 class UserProfile {
 
 	Long id;
-	String name;
+	String login;
+	String password;
+	
+	String chiName;
+	String engName;
+	Character sex;
+	Date birthday;
+	String address;
+	String mobilePhoneNo;
+	Long lastUpdateBy;
+	Date lastUpdateDate;
+	Integer cardId;
+	District district;
+	SubDistrict subDistrict;
 	
 	static mapping = {
 		version false
 		autoTimestamp false
+		userGroups joinTable: [name: 'profile_group_mapping']
 	}
 	
     static constraints = {
     }
+	
+	static hasMany = [userGroups:UserGroup]
 }
