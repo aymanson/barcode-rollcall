@@ -28,7 +28,7 @@ class AttendanceController {
 		calendar.set(Calendar.MINUTE, 0)
 		calendar.set(Calendar.SECOND, 0)
 		calendar.set(Calendar.MILLISECOND, 0)
-		attendanceInstance.arrivalTime = new Date();
+		attendanceInstance.recordTime = new Date();
 		attendanceInstance.date = calendar.getTime()
 		attendanceInstance.save(flush: true)
 		Thread.sleep(1500);

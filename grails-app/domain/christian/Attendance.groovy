@@ -5,7 +5,7 @@ class Attendance {
 	Long id;
 	Long userProfileId;
 	Date date;
-	Date arrivalTime;
+	Date recordTime;
 	
 	static mapping = {
 		version false

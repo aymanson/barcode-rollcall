@@ -23,11 +23,11 @@
 			</g:if>
 			<ol class="property-list attendance">
 			
-				<g:if test="${attendanceInstance?.arrivalTime}">
+				<g:if test="${attendanceInstance?.recordTime}">
 				<li class="fieldcontain">
-					<span id="arrivalTime-label" class="property-label"><g:message code="attendance.arrivalTime.label" default="Arrival Time" /></span>
+					<span id="recordTime-label" class="property-label"><g:message code="attendance.recordTime.label" default="Record Time" /></span>
 					
-						<span class="property-value" aria-labelledby="arrivalTime-label"><g:formatDate date="${attendanceInstance?.arrivalTime}" /></span>
+						<span class="property-value" aria-labelledby="recordTime-label"><g:formatDate date="${attendanceInstance?.recordTime}" /></span>
 					
 				</li>
 				</g:if>

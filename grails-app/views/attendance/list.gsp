@@ -24,7 +24,7 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="arrivalTime" title="${message(code: 'attendance.arrivalTime.label', default: 'Arrival Time')}" />
+						<g:sortableColumn property="recordTime" title="${message(code: 'attendance.recordTime.label', default: 'Record Time')}" />
 					
 						<g:sortableColumn property="date" title="${message(code: 'attendance.date.label', default: 'Date')}" />
 					
