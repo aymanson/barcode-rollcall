@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 3.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 06, 2012 at 04:44 AM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Host: localhost
+-- Generation Time: Nov 15, 2012 at 12:50 AM
+-- Server version: 5.5.25a
+-- PHP Version: 5.4.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -33,7 +33,6 @@ CREATE TABLE IF NOT EXISTS `attendance` (
   `record_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=91 ;
-
 
 -- --------------------------------------------------------
 
@@ -76,6 +75,29 @@ CREATE TABLE IF NOT EXISTS `profile_group_mapping` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `role`
+--
+
+CREATE TABLE IF NOT EXISTS `role` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `authority` varchar(50) NOT NULL,
+  `version` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `authority` (`authority`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`id`, `authority`, `version`) VALUES
+(1, 'admin', 0),
+(2, 'moderator', 0),
+(3, 'member', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sub_district`
 --
 
@@ -94,6 +116,34 @@ CREATE TABLE IF NOT EXISTS `sub_district` (
 
 INSERT INTO `sub_district` (`id`, `name`, `district_id`, `code`) VALUES
 (1, 'Kowloon City', 1, '01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `account_expired` tinyint(1) NOT NULL,
+  `account_locked` tinyint(1) NOT NULL,
+  `password_expired` tinyint(1) NOT NULL,
+  `version` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `account_expired`, `account_locked`, `password_expired`, `version`) VALUES
+(1, 'admin', 'c1275454376a26e436fedcc8fe3ce007710538cdf13696dec3d9eb539f5a1202', 1, 0, 0, 0, 0),
+(2, 'moderator', 'c1275454376a26e436fedcc8fe3ce007710538cdf13696dec3d9eb539f5a1202', 1, 0, 0, 0, 0),
+(3, 'admin2', '60cd11cbb9f95a8f6b550f213b185d4d39e2c2468f111fc2850d3113298f2789372989504bd4fe768571534eb1d61946d08c9f57eb5d459797dc44639cd76ee1', 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -140,6 +190,27 @@ CREATE TABLE IF NOT EXISTS `user_profile` (
   KEY `district_id` (`district_id`),
   KEY `sub_district_id` (`sub_district_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_role`
+--
+
+CREATE TABLE IF NOT EXISTS `user_role` (
+  `user_id` bigint(20) NOT NULL,
+  `role_id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `version` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `user_role`
+--
+
+INSERT INTO `user_role` (`user_id`, `role_id`, `id`, `version`) VALUES
+(1, 1, 1, 0);
 
 --
 -- Constraints for dumped tables
