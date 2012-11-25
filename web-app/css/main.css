@@ -11,21 +11,21 @@ h1, h2, h3, h4, h5, h6 {
 /* BASE LAYOUT */
 
 html {
-	background-color: #ddd;
-	background-image: -moz-linear-gradient(center top, #aaa, #ddd);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #ddd));
-	background-image: linear-gradient(top, #aaa, #ddd);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#aaaaaa', EndColorStr = '#dddddd');
+	background-color: 7A8DAB;
+	background-image: -moz-linear-gradient(center top, #aaa, #7A8DAB);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #7A8DAB));
+	background-image: linear-gradient(top, #aaa, #7A8DAB);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#aaaaaa', EndColorStr = '#7A8DAB');
 	background-repeat: no-repeat;
 	height: 100%;
 	/* change the box model to exclude the padding from the calculation of 100% height (IE8+) */
 	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html.no-cssgradients {
-	background-color: #aaa;
+	background-color: #7A8DAB;
 }
 
 .ie6 html {
@@ -48,7 +48,9 @@ body {
 }
 
 #grailsLogo {
-	background-color: #abbf78;
+	background-color: #34586E;
+	color: #FFF;
+	font-size: 24px;
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */
@@ -65,15 +67,16 @@ body {
 }
 
 a:link, a:visited, a:hover {
-	color: #48802c;
+	color: #1E3853;
 }
 
 a:hover, a:active {
 	outline: none; /* prevents outline in webkit on active links but retains it for tab focus */
+	color: #7A8DAB;
 }
 
 h1 {
-	color: #48802c;
+	color: #34586E;
 	font-weight: normal;
 	font-size: 1.25em;
 	margin: 0.8em 0 0.3em 0;
@@ -108,8 +111,8 @@ img {
 }
 
 .footer {
-	background: #abbf78;
-	color: #000;
+	background: #34586E;
+	color: #ffffff;
 	clear: both;
 	font-size: 0.8em;
 	margin-top: 1.5em;
