@@ -1,5 +1,5 @@
 
-<%@ page import="com.arkvida.security.User" %>
+<%@ page import="org.arkvida.church.domain.User" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,17 +24,15 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="username" title="${message(code: 'user.username.label', default: 'Username')}" />
+						<g:sortableColumn property="login" title="${message(code: 'user.login.label', default: 'Login')}" />
 					
 						<g:sortableColumn property="password" title="${message(code: 'user.password.label', default: 'Password')}" />
 					
-						<g:sortableColumn property="accountExpired" title="${message(code: 'user.accountExpired.label', default: 'Account Expired')}" />
+						<th><g:message code="user.userProfile.label" default="User Profile" /></th>
 					
-						<g:sortableColumn property="accountLocked" title="${message(code: 'user.accountLocked.label', default: 'Account Locked')}" />
+						<g:sortableColumn property="dateCreated" title="${message(code: 'user.dateCreated.label', default: 'Date Created')}" />
 					
-						<g:sortableColumn property="enabled" title="${message(code: 'user.enabled.label', default: 'Enabled')}" />
-					
-						<g:sortableColumn property="passwordExpired" title="${message(code: 'user.passwordExpired.label', default: 'Password Expired')}" />
+						<g:sortableColumn property="lastUpdated" title="${message(code: 'user.lastUpdated.label', default: 'Last Updated')}" />
 					
 					</tr>
 				</thead>
@@ -42,17 +40,15 @@
 				<g:each in="${userInstanceList}" status="i" var="userInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "username")}</g:link></td>
+						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "login")}</g:link></td>
 					
 						<td>${fieldValue(bean: userInstance, field: "password")}</td>
 					
-						<td><g:formatBoolean boolean="${userInstance.accountExpired}" /></td>
+						<td>${fieldValue(bean: userInstance, field: "userProfile")}</td>
 					
-						<td><g:formatBoolean boolean="${userInstance.accountLocked}" /></td>
+						<td><g:formatDate date="${userInstance.dateCreated}" /></td>
 					
-						<td><g:formatBoolean boolean="${userInstance.enabled}" /></td>
-					
-						<td><g:formatBoolean boolean="${userInstance.passwordExpired}" /></td>
+						<td><g:formatDate date="${userInstance.lastUpdated}" /></td>
 					
 					</tr>
 				</g:each>

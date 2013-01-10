@@ -1,12 +1,13 @@
-<%@ page import="christian.Attendance" %>
+<%@ page import="org.arkvida.church.domain.Attendance" %>
 
 
-<div class="fieldcontain ${hasErrors(bean: attendanceInstance, field: 'date', 'error')} required">
-	<label for="date">
-		<g:message code="attendance.date.label" default="Date" />
+
+<div class="fieldcontain ${hasErrors(bean: attendanceInstance, field: 'gatheringId', 'error')} required">
+	<label for="gatheringId">
+		<g:message code="attendance.gatheringId.label" default="Gathering Id" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="date" precision="day"  value="${attendanceInstance?.date}"  />
+	<g:field name="gatheringId" type="number" value="${attendanceInstance.gatheringId}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: attendanceInstance, field: 'userProfileId', 'error')} required">

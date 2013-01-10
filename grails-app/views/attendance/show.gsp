@@ -1,5 +1,5 @@
 
-<%@ page import="christian.Attendance" %>
+<%@ page import="org.arkvida.church.domain.Attendance" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,20 +23,20 @@
 			</g:if>
 			<ol class="property-list attendance">
 			
-				<g:if test="${attendanceInstance?.arrivalTime}">
+				<g:if test="${attendanceInstance?.dateCreated}">
 				<li class="fieldcontain">
-					<span id="arrivalTime-label" class="property-label"><g:message code="attendance.arrivalTime.label" default="Arrival Time" /></span>
+					<span id="dateCreated-label" class="property-label"><g:message code="attendance.dateCreated.label" default="Date Created" /></span>
 					
-						<span class="property-value" aria-labelledby="arrivalTime-label"><g:formatDate date="${attendanceInstance?.arrivalTime}" /></span>
+						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${attendanceInstance?.dateCreated}" /></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${attendanceInstance?.date}">
+				<g:if test="${attendanceInstance?.gatheringId}">
 				<li class="fieldcontain">
-					<span id="date-label" class="property-label"><g:message code="attendance.date.label" default="Date" /></span>
+					<span id="gatheringId-label" class="property-label"><g:message code="attendance.gatheringId.label" default="Gathering Id" /></span>
 					
-						<span class="property-value" aria-labelledby="date-label"><g:formatDate date="${attendanceInstance?.date}" /></span>
+						<span class="property-value" aria-labelledby="gatheringId-label"><g:fieldValue bean="${attendanceInstance}" field="gatheringId"/></span>
 					
 				</li>
 				</g:if>
@@ -54,6 +54,7 @@
 			<g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${attendanceInstance?.id}" />
+					<g:link class="edit" action="edit" id="${attendanceInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>

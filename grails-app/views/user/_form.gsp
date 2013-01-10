@@ -1,13 +1,13 @@
-<%@ page import="com.arkvida.security.User" %>
+<%@ page import="org.arkvida.church.domain.User" %>
 
 
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
-	<label for="username">
-		<g:message code="user.username.label" default="Username" />
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'login', 'error')} required">
+	<label for="login">
+		<g:message code="user.login.label" default="Login" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="username" required="" value="${userInstance?.username}"/>
+	<g:textField name="login" maxlength="25" required="" value="${userInstance?.login}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
@@ -15,38 +15,14 @@
 		<g:message code="user.password.label" default="Password" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="password" required="" value="${userInstance?.password}"/>
+	<g:passwordField name="password" maxlength="25" required="" value="${userInstance?.password}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'accountExpired', 'error')} ">
-	<label for="accountExpired">
-		<g:message code="user.accountExpired.label" default="Account Expired" />
-		
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'userProfile', 'error')} required">
+	<label for="userProfile">
+		<g:message code="user.userProfile.label" default="User Profile" />
+		<span class="required-indicator">*</span>
 	</label>
-	<g:checkBox name="accountExpired" value="${userInstance?.accountExpired}" />
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'accountLocked', 'error')} ">
-	<label for="accountLocked">
-		<g:message code="user.accountLocked.label" default="Account Locked" />
-		
-	</label>
-	<g:checkBox name="accountLocked" value="${userInstance?.accountLocked}" />
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'enabled', 'error')} ">
-	<label for="enabled">
-		<g:message code="user.enabled.label" default="Enabled" />
-		
-	</label>
-	<g:checkBox name="enabled" value="${userInstance?.enabled}" />
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'passwordExpired', 'error')} ">
-	<label for="passwordExpired">
-		<g:message code="user.passwordExpired.label" default="Password Expired" />
-		
-	</label>
-	<g:checkBox name="passwordExpired" value="${userInstance?.passwordExpired}" />
+	<g:select id="userProfile" name="userProfile.id" from="${org.arkvida.church.domain.UserProfile.findAllByDistrict(session["currentDistrict"])}" optionKey="id" required="" value="${userInstance?.userProfile?.id}" class="many-to-one"/>
 </div>
 

@@ -1,4 +1,4 @@
-<%@ page import="christian.Attendance" %>
+<%@ page import="org.arkvida.church.domain.Attendance" %>
 <!DOCTYPE html>
 <html>
 	<head>

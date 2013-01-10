@@ -1,5 +1,5 @@
 
-<%@ page import="christian.Attendance" %>
+<%@ page import="org.arkvida.church.domain.Attendance" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,9 +24,9 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="arrivalTime" title="${message(code: 'attendance.arrivalTime.label', default: 'Arrival Time')}" />
+						<g:sortableColumn property="dateCreated" title="${message(code: 'attendance.dateCreated.label', default: 'Date Created')}" />
 					
-						<g:sortableColumn property="date" title="${message(code: 'attendance.date.label', default: 'Date')}" />
+						<g:sortableColumn property="gatheringId" title="${message(code: 'attendance.gatheringId.label', default: 'Gathering Id')}" />
 					
 						<g:sortableColumn property="userProfileId" title="${message(code: 'attendance.userProfileId.label', default: 'User Profile Id')}" />
 					
@@ -36,9 +36,9 @@
 				<g:each in="${attendanceInstanceList}" status="i" var="attendanceInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${attendanceInstance.id}">${fieldValue(bean: attendanceInstance, field: "arrivalTime")}</g:link></td>
+						<td><g:link action="show" id="${attendanceInstance.id}">${fieldValue(bean: attendanceInstance, field: "dateCreated")}</g:link></td>
 					
-						<td><g:formatDate date="${attendanceInstance.date}" /></td>
+						<td>${fieldValue(bean: attendanceInstance, field: "gatheringId")}</td>
 					
 						<td>${fieldValue(bean: attendanceInstance, field: "userProfileId")}</td>
 					

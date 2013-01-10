@@ -1,5 +1,5 @@
 
-<%@ page import="christian.UserProfile" %>
+<%@ page import="org.arkvida.church.domain.UserProfile" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,20 +23,11 @@
 			</g:if>
 			<ol class="property-list userProfile">
 			
-				<g:if test="${userProfileInstance?.address}">
+				<g:if test="${userProfileInstance?.cardId}">
 				<li class="fieldcontain">
-					<span id="address-label" class="property-label"><g:message code="userProfile.address.label" default="Address" /></span>
+					<span id="cardId-label" class="property-label"><g:message code="userProfile.cardId.label" default="Card Id" /></span>
 					
-						<span class="property-value" aria-labelledby="address-label"><g:fieldValue bean="${userProfileInstance}" field="address"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${userProfileInstance?.birthday}">
-				<li class="fieldcontain">
-					<span id="birthday-label" class="property-label"><g:message code="userProfile.birthday.label" default="Birthday" /></span>
-					
-						<span class="property-value" aria-labelledby="birthday-label"><g:formatDate date="${userProfileInstance?.birthday}" /></span>
+						<span class="property-value" aria-labelledby="cardId-label"><g:fieldValue bean="${userProfileInstance}" field="cardId"/></span>
 					
 				</li>
 				</g:if>
@@ -50,65 +41,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${userProfileInstance?.district}">
-				<li class="fieldcontain">
-					<span id="district-label" class="property-label"><g:message code="userProfile.district.label" default="District" /></span>
-					
-						<span class="property-value" aria-labelledby="district-label"><g:link controller="district" action="show" id="${userProfileInstance?.district?.id}">${userProfileInstance?.district?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${userProfileInstance?.engName}">
 				<li class="fieldcontain">
 					<span id="engName-label" class="property-label"><g:message code="userProfile.engName.label" default="Eng Name" /></span>
 					
 						<span class="property-value" aria-labelledby="engName-label"><g:fieldValue bean="${userProfileInstance}" field="engName"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${userProfileInstance?.lastUpdateBy}">
-				<li class="fieldcontain">
-					<span id="lastUpdateBy-label" class="property-label"><g:message code="userProfile.lastUpdateBy.label" default="Last Update By" /></span>
-					
-						<span class="property-value" aria-labelledby="lastUpdateBy-label"><g:fieldValue bean="${userProfileInstance}" field="lastUpdateBy"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${userProfileInstance?.lastUpdateDate}">
-				<li class="fieldcontain">
-					<span id="lastUpdateDate-label" class="property-label"><g:message code="userProfile.lastUpdateDate.label" default="Last Update Date" /></span>
-					
-						<span class="property-value" aria-labelledby="lastUpdateDate-label"><g:formatDate date="${userProfileInstance?.lastUpdateDate}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${userProfileInstance?.login}">
-				<li class="fieldcontain">
-					<span id="login-label" class="property-label"><g:message code="userProfile.login.label" default="Login" /></span>
-					
-						<span class="property-value" aria-labelledby="login-label"><g:fieldValue bean="${userProfileInstance}" field="login"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${userProfileInstance?.mobilePhoneNo}">
-				<li class="fieldcontain">
-					<span id="mobilePhoneNo-label" class="property-label"><g:message code="userProfile.mobilePhoneNo.label" default="Mobile Phone No" /></span>
-					
-						<span class="property-value" aria-labelledby="mobilePhoneNo-label"><g:fieldValue bean="${userProfileInstance}" field="mobilePhoneNo"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${userProfileInstance?.password}">
-				<li class="fieldcontain">
-					<span id="password-label" class="property-label"><g:message code="userProfile.password.label" default="Password" /></span>
-					
-						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${userProfileInstance}" field="password"/></span>
 					
 				</li>
 				</g:if>
@@ -122,22 +59,76 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${userProfileInstance?.subDistrict}">
+				<g:if test="${userProfileInstance?.birthday}">
 				<li class="fieldcontain">
-					<span id="subDistrict-label" class="property-label"><g:message code="userProfile.subDistrict.label" default="Sub District" /></span>
+					<span id="birthday-label" class="property-label"><g:message code="userProfile.birthday.label" default="Birthday" /></span>
 					
-						<span class="property-value" aria-labelledby="subDistrict-label"><g:link controller="subDistrict" action="show" id="${userProfileInstance?.subDistrict?.id}">${userProfileInstance?.subDistrict?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="birthday-label"><g:formatDate date="${userProfileInstance?.birthday}" /></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${userProfileInstance?.userGroups}">
+				<g:if test="${userProfileInstance?.address}">
 				<li class="fieldcontain">
-					<span id="userGroups-label" class="property-label"><g:message code="userProfile.userGroups.label" default="User Groups" /></span>
+					<span id="address-label" class="property-label"><g:message code="userProfile.address.label" default="Address" /></span>
 					
-						<g:each in="${userProfileInstance.userGroups}" var="u">
-						<span class="property-value" aria-labelledby="userGroups-label"><g:link controller="userGroup" action="show" id="${u.id}">${u?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="address-label"><g:fieldValue bean="${userProfileInstance}" field="address"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userProfileInstance?.mobilePhoneNo}">
+				<li class="fieldcontain">
+					<span id="mobilePhoneNo-label" class="property-label"><g:message code="userProfile.mobilePhoneNo.label" default="Mobile Phone No" /></span>
+					
+						<span class="property-value" aria-labelledby="mobilePhoneNo-label"><g:fieldValue bean="${userProfileInstance}" field="mobilePhoneNo"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userProfileInstance?.district}">
+				<li class="fieldcontain">
+					<span id="district-label" class="property-label"><g:message code="userProfile.district.label" default="District" /></span>
+					
+						<span class="property-value" aria-labelledby="district-label"><g:link controller="district" action="show" id="${userProfileInstance?.district?.id}">${userProfileInstance?.district?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userProfileInstance?.livingDistrict}">
+				<li class="fieldcontain">
+					<span id="livingDistrict-label" class="property-label"><g:message code="userProfile.livingDistrict.label" default="Living District" /></span>
+					
+						<span class="property-value" aria-labelledby="livingDistrict-label"><g:link controller="livingDistrict" action="show" id="${userProfileInstance?.livingDistrict?.id}">${userProfileInstance?.livingDistrict?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userProfileInstance?.gatherings}">
+				<li class="fieldcontain">
+					<span id="gatherings-label" class="property-label"><g:message code="userProfile.gatherings.label" default="Gatherings" /></span>
+					
+						<g:each in="${userProfileInstance.gatherings}" var="g">
+						<span class="property-value" aria-labelledby="gatherings-label"><g:link controller="gathering" action="show" id="${g.id}">${g?.encodeAsHTML()}</g:link></span>
 						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userProfileInstance?.dateCreated}">
+				<li class="fieldcontain">
+					<span id="dateCreated-label" class="property-label"><g:message code="userProfile.dateCreated.label" default="Date Created" /></span>
+					
+						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${userProfileInstance?.dateCreated}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userProfileInstance?.lastUpdated}">
+				<li class="fieldcontain">
+					<span id="lastUpdated-label" class="property-label"><g:message code="userProfile.lastUpdated.label" default="Last Updated" /></span>
+					
+						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${userProfileInstance?.lastUpdated}" /></span>
 					
 				</li>
 				</g:if>

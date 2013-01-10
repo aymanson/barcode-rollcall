@@ -1,4 +1,4 @@
-<%@ page import="com.arkvida.security.User" %>
+<%@ page import="org.arkvida.church.domain.User" %>
 <!DOCTYPE html>
 <html>
 	<head>

@@ -1,4 +1,4 @@
-<%@ page import="christian.UserProfile" %>
+<%@ page import="org.arkvida.church.domain.UserProfile" %>
 <!DOCTYPE html>
 <html>
 	<head>

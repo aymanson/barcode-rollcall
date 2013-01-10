@@ -1,5 +1,5 @@
 
-<%@ page import="christian.UserProfile" %>
+<%@ page import="org.arkvida.church.domain.UserProfile" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,17 +24,17 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="address" title="${message(code: 'userProfile.address.label', default: 'Address')}" />
-					
-						<g:sortableColumn property="birthday" title="${message(code: 'userProfile.birthday.label', default: 'Birthday')}" />
+						<g:sortableColumn property="cardId" title="${message(code: 'userProfile.cardId.label', default: 'Card Id')}" />
 					
 						<g:sortableColumn property="chiName" title="${message(code: 'userProfile.chiName.label', default: 'Chi Name')}" />
 					
-						<th><g:message code="userProfile.district.label" default="District" /></th>
-					
 						<g:sortableColumn property="engName" title="${message(code: 'userProfile.engName.label', default: 'Eng Name')}" />
 					
-						<g:sortableColumn property="lastUpdateBy" title="${message(code: 'userProfile.lastUpdateBy.label', default: 'Last Update By')}" />
+						<g:sortableColumn property="sex" title="${message(code: 'userProfile.sex.label', default: 'Sex')}" />
+					
+						<g:sortableColumn property="birthday" title="${message(code: 'userProfile.birthday.label', default: 'Birthday')}" />
+					
+						<g:sortableColumn property="address" title="${message(code: 'userProfile.address.label', default: 'Address')}" />
 					
 					</tr>
 				</thead>
@@ -42,17 +42,17 @@
 				<g:each in="${userProfileInstanceList}" status="i" var="userProfileInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${userProfileInstance.id}">${fieldValue(bean: userProfileInstance, field: "address")}</g:link></td>
-					
-						<td><g:formatDate date="${userProfileInstance.birthday}" /></td>
+						<td><g:link action="show" id="${userProfileInstance.id}">${fieldValue(bean: userProfileInstance, field: "cardId")}</g:link></td>
 					
 						<td>${fieldValue(bean: userProfileInstance, field: "chiName")}</td>
 					
-						<td>${fieldValue(bean: userProfileInstance, field: "district")}</td>
-					
 						<td>${fieldValue(bean: userProfileInstance, field: "engName")}</td>
 					
-						<td>${fieldValue(bean: userProfileInstance, field: "lastUpdateBy")}</td>
+						<td>${fieldValue(bean: userProfileInstance, field: "sex")}</td>
+					
+						<td><g:formatDate date="${userProfileInstance.birthday}" /></td>
+					
+						<td>${fieldValue(bean: userProfileInstance, field: "address")}</td>
 					
 					</tr>
 				</g:each>
