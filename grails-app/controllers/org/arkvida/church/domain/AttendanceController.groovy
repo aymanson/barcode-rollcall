@@ -10,6 +10,32 @@ class AttendanceController {
         redirect(action: "list", params: params)
     }
 
+	def barcodeRollcall() {
+		def attendanceInstance = new Attendance(params)
+		def calendar = new GregorianCalendar()
+		calendar.set(Calendar.HOUR, 0)
+		calendar.set(Calendar.MINUTE, 0)
+		calendar.set(Calendar.SECOND, 0)
+		calendar.set(Calendar.MILLISECOND, 0)
+		attendanceInstance.date = calendar.getTime()
+		[attendanceInstance: attendanceInstance]
+	}
+	
+	def attend() {
+		def attendanceInstance = new Attendance(params)
+		def calendar = new GregorianCalendar()
+		calendar.set(Calendar.HOUR, 0)
+		calendar.set(Calendar.MINUTE, 0)
+		calendar.set(Calendar.SECOND, 0)
+		calendar.set(Calendar.MILLISECOND, 0)
+		attendanceInstance.recordTime = new Date();
+		attendanceInstance.date = calendar.getTime()
+		attendanceInstance.save(flush: true)
+		Thread.sleep(1500);
+		def userProfileInstance = UserProfile.findById(params.userProfileId)
+		[attendanceInstance: attendanceInstance, userProfileInstance: userProfileInstance]
+	}
+	
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [attendanceInstanceList: Attendance.list(params), attendanceInstanceTotal: Attendance.count()]
@@ -21,6 +47,7 @@ class AttendanceController {
 
     def save() {
         def attendanceInstance = new Attendance(params)
+		attendanceInstance.arrivalTime = new Date();
         if (!attendanceInstance.save(flush: true)) {
             render(view: "create", model: [attendanceInstance: attendanceInstance])
             return
@@ -39,46 +66,6 @@ class AttendanceController {
         }
 
         [attendanceInstance: attendanceInstance]
-    }
-
-    def edit(Long id) {
-        def attendanceInstance = Attendance.get(id)
-        if (!attendanceInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'attendance.label', default: 'Attendance'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [attendanceInstance: attendanceInstance]
-    }
-
-    def update(Long id, Long version) {
-        def attendanceInstance = Attendance.get(id)
-        if (!attendanceInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'attendance.label', default: 'Attendance'), id])
-            redirect(action: "list")
-            return
-        }
-
-        if (version != null) {
-            if (attendanceInstance.version > version) {
-                attendanceInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'attendance.label', default: 'Attendance')] as Object[],
-                          "Another user has updated this Attendance while you were editing")
-                render(view: "edit", model: [attendanceInstance: attendanceInstance])
-                return
-            }
-        }
-
-        attendanceInstance.properties = params
-
-        if (!attendanceInstance.save(flush: true)) {
-            render(view: "edit", model: [attendanceInstance: attendanceInstance])
-            return
-        }
-
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'attendance.label', default: 'Attendance'), attendanceInstance.id])
-        redirect(action: "show", id: attendanceInstance.id)
     }
 
     def delete(Long id) {

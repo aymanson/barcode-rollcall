@@ -20,7 +20,7 @@
 			 	jQuery.ajax({
 			 		type:'POST',
 			 		data:'userProfileId='+userProfileId, 
-			 		url:'attend3',
+			 		url:'attend',
 			 		success:onAttend,
 			 		error:function(XMLHttpRequest,textStatus,errorThrown){},
 			 		timeout:5000,
@@ -56,7 +56,7 @@
 						<g:sortableColumn property="date" title="${message(code: 'attendance.date.label', default: 'Date')}" />
 						<g:sortableColumn property="userProfileId" title="${message(code: 'attendance.userProfileId.label', default: 'User Profile Id')}" />
 						<g:sortableColumn property="name" title="${message(code: 'userProfile.name.label', default: 'Name')}" />					
-						<g:sortableColumn property="arrivalTime" title="${message(code: 'attendance.arrivalTime.label', default: 'Arrival Time')}" />
+						<g:sortableColumn property="recordTime" title="${message(code: 'attendance.recordTime.label', default: 'Record Time')}" />
 					</tr>
 				</thead>
 				<tbody id="attendResult">
