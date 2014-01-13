@@ -14,20 +14,20 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "none" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost/church?useUnicode=yes&characterEncoding=UTF-8"
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "jdbc:mysql://localhost:3306/barcode?useUnicode=yes&characterEncoding=UTF-8"
         }
     }
     test {
         dataSource {
-            dbCreate = "none"
-            url = "jdbc:mysql://localhost/church?useUnicode=yes&characterEncoding=UTF-8"
+            dbCreate = "update"
+            url = "jdbc:mysql://localhost:3306/barcode?useUnicode=yes&characterEncoding=UTF-8"
         }
     }
     production {
         dataSource {
-            dbCreate = "none"
-            url = "jdbc:mysql://localhost/church?useUnicode=yes&characterEncoding=UTF-8"
+            dbCreate = "update"
+            url = "jdbc:mysql://localhost:3306/barcode?useUnicode=yes&characterEncoding=UTF-8"
             pooled = true
             properties {
                maxActive = -1

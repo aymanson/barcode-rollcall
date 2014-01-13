@@ -12,9 +12,11 @@ class IndexController {
 		}
 		if (session["currentDistrictId"] == null) {
 			def districts = District.list();
-			session["currentDistrict"] = districts[0];
-			session["currentDistrictId"] = districts[0].id;
-			System.out.println("Set default " + session["currentDistrictId"]);
+			if ( districts ) {
+				session["currentDistrict"] = districts[0];
+				session["currentDistrictId"] = districts[0].id;
+				System.out.println("Set default " + session["currentDistrictId"]);
+			}
 		}
 	}
 	

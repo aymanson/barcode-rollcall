@@ -29,6 +29,9 @@ grails.mime.types = [
     xml:           ['text/xml', 'application/xml']
 ]
 
+grails.app.context = "deaconoffice"
+
+
 // URL Mapping Cache Max Size, defaults to 5000
 //grails.urlmapping.cache.maxsize = 1000
 
