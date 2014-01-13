@@ -5,7 +5,7 @@ class Gathering {
 	Long id;
 	String name;
 	GatheringType gatheringType;
-	District district;
+	AssemblyDistrict district;
 	Date dateCreated;
 	Date lastUpdated;
 	

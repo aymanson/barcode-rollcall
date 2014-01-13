@@ -1,5 +1,5 @@
 
-<%@ page import="org.arkvida.church.domain.District" %>
+<%@ page import="org.arkvida.church.domain.AssemblyDistrict" %>
 <!DOCTYPE html>
 <html>
 	<head>

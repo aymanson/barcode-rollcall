@@ -45,7 +45,7 @@
 				<li class="fieldcontain">
 					<span id="district-label" class="property-label"><g:message code="livingDistrict.district.label" default="District" /></span>
 					
-						<span class="property-value" aria-labelledby="district-label"><g:link controller="district" action="show" id="${livingDistrictInstance?.district?.id}">${livingDistrictInstance?.district?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="district-label"><g:link controller="assemblyDistrict" action="show" id="${livingDistrictInstance?.district?.id}">${livingDistrictInstance?.district?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

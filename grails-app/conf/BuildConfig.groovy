@@ -5,6 +5,7 @@ grails.project.test.reports.dir = "target/test-reports"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
+grails.server.port.http = 8280
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -35,6 +36,8 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         runtime 'mysql:mysql-connector-java:5.1.20'
+		compile 'org.apache.poi:poi:3.8'
+		compile 'org.apache.poi:poi-ooxml:3.8'
     }
 
     plugins {

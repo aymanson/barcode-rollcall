@@ -22,7 +22,7 @@
 		<div id="grailsLogo" role="banner">
 			<a href="http://www.churchinhk.org.hk"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Church in Hong Kong"/></a> 
 			<g:form name="myForm" controller="index" action="index">
-			<g:message code="header.pickDistrict" default="Current District:"/><g:select id="districtId" name="districtId" from="${org.arkvida.church.domain.District.list()}" optionKey="id" value="${session['currentDistrictId']}" required="" class="many-to-one" 
+			<g:message code="header.pickDistrict" default="Current District:"/><g:select id="districtId" name="districtId" from="${org.arkvida.church.domain.AssemblyDistrict.list()}" optionKey="id" value="${session['currentDistrictId']}" required="" class="many-to-one" 
 			   onChange="submit()"/>
             </g:form>
 		</div>

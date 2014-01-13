@@ -24,6 +24,7 @@ class LivingDistrictController {
     }
 
 	private String obtainUnusedCode() {
+		log.info("currnetDistrict:" + session["currentDistrict"]);
 		def results = LivingDistrict.findAllByDistrict(session["currentDistrict"], [max:1, sort:"code", order:"desc"]);
 		def code = Integer.valueOf(results[0].getCode(), 10) + 1
 		def numberFormat = NumberFormat.getInstance();

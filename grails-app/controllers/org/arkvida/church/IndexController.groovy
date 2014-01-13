@@ -7,11 +7,11 @@ class IndexController {
 	def index() {
 		if (params.districtId != null) {
 			session["currentDistrictId"] = params.districtId;
-			session["currentDistrict"] = District.findById(params.districtId);
+			session["currentDistrict"] = AssemblyDistrict.findById(params.districtId);
 			System.out.println("Set to specified" + session["currentDistrictId"]);
 		}
 		if (session["currentDistrictId"] == null) {
-			def districts = District.list();
+			def districts = AssemblyDistrict.list();
 			if ( districts ) {
 				session["currentDistrict"] = districts[0];
 				session["currentDistrictId"] = districts[0].id;

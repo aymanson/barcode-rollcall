@@ -4,7 +4,7 @@ import java.text.NumberFormat
 
 import org.springframework.dao.DataIntegrityViolationException
 
-class DistrictController {
+class AssemblyDistrictController {
 
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -14,18 +14,18 @@ class DistrictController {
 
 	def list(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
-		[districtInstanceList: District.list(params), districtInstanceTotal: District.count()]
+		[districtInstanceList: AssemblyDistrict.list(params), districtInstanceTotal: AssemblyDistrict.count()]
 	}
 
 	def create() {
-		def districtInstance = new District(params)
+		def districtInstance = new AssemblyDistrict(params)
 		def code = obtainUnusedCode();
 		districtInstance.setCode(code)
 		[districtInstance: districtInstance]
 	}
 
 	private String obtainUnusedCode() {
-		def results = District.list([max:1, sort:"code", order:"desc"]);
+		def results = AssemblyDistrict.list([max:1, sort:"code", order:"desc"]);
 		if ( results ) {
 			def code = Integer.valueOf(results[0].getCode(), 10) + 1
 			def numberFormat = NumberFormat.getInstance();
@@ -36,7 +36,7 @@ class DistrictController {
 	}
 
 	def save() {
-		def districtInstance = new District(params)
+		def districtInstance = new AssemblyDistrict(params)
 		if (!districtInstance.save(flush: true)) {
 			render(view: "create", model: [districtInstance: districtInstance])
 			return
@@ -50,7 +50,7 @@ class DistrictController {
 	}
 
 	def show(Long id) {
-		def districtInstance = District.get(id)
+		def districtInstance = AssemblyDistrict.get(id)
 		if (!districtInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [
 				message(code: 'district.label', default: 'District'),
@@ -64,7 +64,7 @@ class DistrictController {
 	}
 
 	def edit(Long id) {
-		def districtInstance = District.get(id)
+		def districtInstance = AssemblyDistrict.get(id)
 		if (!districtInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [
 				message(code: 'district.label', default: 'District'),
@@ -78,7 +78,7 @@ class DistrictController {
 	}
 
 	def update(Long id, Long version) {
-		def districtInstance = District.get(id)
+		def districtInstance = AssemblyDistrict.get(id)
 		if (!districtInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [
 				message(code: 'district.label', default: 'District'),
@@ -114,7 +114,7 @@ class DistrictController {
 	}
 
 	def delete(Long id) {
-		def districtInstance = District.get(id)
+		def districtInstance = AssemblyDistrict.get(id)
 		if (!districtInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [
 				message(code: 'district.label', default: 'District'),

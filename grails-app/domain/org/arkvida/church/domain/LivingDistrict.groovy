@@ -7,7 +7,7 @@ class LivingDistrict {
 	String code;
 	Date dateCreated;
 	Date lastUpdated;
-	District district;
+	AssemblyDistrict district;
 	
     static constraints = {
 		code validator: { val, obj ->

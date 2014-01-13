@@ -1,6 +1,6 @@
 package org.arkvida.church.domain
 
-class District {
+class AssemblyDistrict {
 
 	Long id;
 	String name;

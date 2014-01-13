@@ -23,6 +23,6 @@
 		<g:message code="user.userProfile.label" default="User Profile" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="userProfile" name="userProfile.id" from="${org.arkvida.church.domain.UserProfile.findAllByDistrict(session["currentDistrict"])}" optionKey="id" required="" value="${userInstance?.userProfile?.id}" class="many-to-one"/>
+	<g:select id="userProfile" name="userProfile.id" from="${org.arkvida.church.domain.UserProfile.findAllByAssemblyDistrict(session["currentDistrict"])}" optionKey="id" required="" value="${userInstance?.userProfile?.id}" class="many-to-one"/>
 </div>
 

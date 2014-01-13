@@ -14,7 +14,7 @@ class UserProfileController {
 
 	def list(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
-		[userProfileInstanceList: UserProfile.findAllByDistrict(session["currentDistrict"], params), userProfileInstanceTotal: UserProfile.count()]
+		[userProfileInstanceList: UserProfile.findAllByAssemblyDistrict(session["currentDistrict"], params), userProfileInstanceTotal: UserProfile.count()]
 	}
 
 	def create() {
@@ -24,7 +24,7 @@ class UserProfileController {
 	}
 
 	private Integer obtainUnusedCardId() {
-		def results = UserProfile.findAllByDistrict(session["currentDistrict"], [max:1, sort:"lastUpdated", order:"desc"]);
+		def results = UserProfile.findAllByAssemblyDistrict(session["currentDistrict"], [max:1, sort:"lastUpdated", order:"desc"]);
 		if ( results ) {
 			def cardId = results[0].getCardId() + 1
 			return cardId;

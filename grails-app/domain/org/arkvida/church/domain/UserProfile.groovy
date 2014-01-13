@@ -12,7 +12,7 @@ class UserProfile {
 	String address;
 	String mobilePhoneNo;
 	Integer cardId;
-	District district;
+	AssemblyDistrict assemblyDistrict;
 	LivingDistrict livingDistrict;
 	Date dateCreated;
 	Date lastUpdated;
@@ -31,7 +31,7 @@ class UserProfile {
 		birthday()
 		address()
 		mobilePhoneNo()
-		district()
+		assemblyDistrict()
 		livingDistrict()
 		gatherings()
     }

@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="district-label" class="property-label"><g:message code="gathering.district.label" default="District" /></span>
 					
-						<span class="property-value" aria-labelledby="district-label"><g:link controller="district" action="show" id="${gatheringInstance?.district?.id}">${gatheringInstance?.district?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="district-label"><g:link controller="assemblyDistrict" action="show" id="${gatheringInstance?.district?.id}">${gatheringInstance?.district?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

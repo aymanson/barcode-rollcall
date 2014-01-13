@@ -5,9 +5,9 @@ package org.arkvida.church.domain
 import org.junit.*
 import grails.test.mixin.*
 
-@TestFor(DistrictController)
-@Mock(District)
-class DistrictControllerTests {
+@TestFor(AssemblyDistrictController)
+@Mock(AssemblyDistrict)
+class AssemblyDistrictControllerTests {
 
     def populateValidParams(params) {
         assert params != null
@@ -47,7 +47,7 @@ class DistrictControllerTests {
 
         assert response.redirectedUrl == '/district/show/1'
         assert controller.flash.message != null
-        assert District.count() == 1
+        assert AssemblyDistrict.count() == 1
     }
 
     void testShow() {
@@ -57,7 +57,7 @@ class DistrictControllerTests {
         assert response.redirectedUrl == '/district/list'
 
         populateValidParams(params)
-        def district = new District(params)
+        def district = new AssemblyDistrict(params)
 
         assert district.save() != null
 
@@ -75,7 +75,7 @@ class DistrictControllerTests {
         assert response.redirectedUrl == '/district/list'
 
         populateValidParams(params)
-        def district = new District(params)
+        def district = new AssemblyDistrict(params)
 
         assert district.save() != null
 
@@ -95,7 +95,7 @@ class DistrictControllerTests {
         response.reset()
 
         populateValidParams(params)
-        def district = new District(params)
+        def district = new AssemblyDistrict(params)
 
         assert district.save() != null
 
@@ -139,17 +139,17 @@ class DistrictControllerTests {
         response.reset()
 
         populateValidParams(params)
-        def district = new District(params)
+        def district = new AssemblyDistrict(params)
 
         assert district.save() != null
-        assert District.count() == 1
+        assert AssemblyDistrict.count() == 1
 
         params.id = district.id
 
         controller.delete()
 
-        assert District.count() == 0
-        assert District.get(district.id) == null
+        assert AssemblyDistrict.count() == 0
+        assert AssemblyDistrict.get(district.id) == null
         assert response.redirectedUrl == '/district/list'
     }
 }
