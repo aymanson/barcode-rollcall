@@ -10,8 +10,18 @@ class UserProfile {
 	String sex;
 	Date birthday;
 	String address;
-	String mobilePhoneNo;
+	String homeContact;
+	String mobileContact;
+	String officeContact;
+	OccupationStatus occupationStatus;
+	Date baptistDate;
+	String referrer; 
+	String baptist;
+	String remarks;
+	String statusSummary;
+	String email; 
 	Integer cardId;
+	
 	AssemblyDistrict assemblyDistrict;
 	LivingDistrict livingDistrict;
 	Date dateCreated;
@@ -30,7 +40,7 @@ class UserProfile {
 		sex()
 		birthday()
 		address()
-		mobilePhoneNo()
+		mobileContact()
 		assemblyDistrict()
 		livingDistrict()
 		gatherings()

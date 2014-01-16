@@ -6,7 +6,6 @@ import org.apache.poi.ss.util.*
 import org.apache.poi.xssf.usermodel.*
 
 class GroovyExcelParser {
-	//http://poi.apache.org/spreadsheet/quick-guide.html#Iterator
 
 	def parse(path) {
 		InputStream inp = new FileInputStream(path);
